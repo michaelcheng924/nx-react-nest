@@ -4,7 +4,7 @@ export function App() {
   return (
     <>
       <Banner text="Welcome to our admin app." />
-      <div />
+      <h1>TEST CHANGE</h1>
     </>
   );
 }
