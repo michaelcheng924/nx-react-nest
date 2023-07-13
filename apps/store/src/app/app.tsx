@@ -1,13 +1,19 @@
+import { Banner } from '@nx-test/common-ui';
+import { exampleProducts } from '@nx-test/products';
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-
-import NxWelcome from './nx-welcome';
-
 export function App() {
   return (
-    <div>
-      <NxWelcome title="store" />
-    </div>
+    <>
+      <Banner text="Welcome to the store!" />
+      <ul>
+        {exampleProducts.map((product) => (
+          <li key={product.id}>
+            <strong>{product.name}</strong> Price: {product.price}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
