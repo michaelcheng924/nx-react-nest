@@ -5,7 +5,7 @@ import { exampleProducts } from '@nx-test/products';
 export function App() {
   return (
     <>
-      <Banner text="Welcome to the store!" />
+      <Banner text="Welcome to the store!!!" />
       <ul>
         {exampleProducts.map((product) => (
           <li key={product.id}>
