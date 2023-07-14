@@ -5,7 +5,7 @@
   "projectType": "application",
   "targets": {
     "deploy": {
-      "builder": "@netlify-builder/deploy:deploy",
+      "executor": "@netlify-builder/deploy:deploy",
       "options": {
         "outputPath": "dist/apps/admin",
         "siteId": "742336c9-4b17-4910-bc0c-006c57c5ad4a"
