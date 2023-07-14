@@ -11,10 +11,11 @@ jobs:
       - image: circleci/circleci-inferconfig:latest
     steps:
       - checkout
-      - node/with-cache:
-        steps:
-          - run: npm install
-          - run: yarn affected:deploy --base=<< pipeline.git.base_revision >> --head=HEAD
+      # create a configuration file that is specific to your setup
+      - run: circleci-inferconfig > generated_config.yml
+      # immediately run a new workflow based on that configuration
+      - continuation/continue:
+          configuration_path: generated_config.yml
 
 workflows:
   analyze-my-code:
