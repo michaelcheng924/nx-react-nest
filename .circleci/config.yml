@@ -1,23 +1,4 @@
-version: 2.1
-orbs:
-  node: circleci/node@1.1.6
-jobs:
-  build-test-and-deploy:
-executor:
-  name: node/default
-steps:
-  - checkout
-  - node/with-cache:
-    steps:
-      - run: npm install
-      - run: yarn affected:deploy --base=<< pipeline.git.base_revision >> --head=HEAD
-
-workflows:
-  build-test-and-deploy:
-jobs:
-  - build-test-and-deploy
-
-  # This file defines a workflow that analyzes your codebase and intelligently creates a
+# This file defines a workflow that analyzes your codebase and intelligently creates a
 # new configuration file with build/test/deploy jobs that are specific to your setup
 version: 2.1
 setup: true
