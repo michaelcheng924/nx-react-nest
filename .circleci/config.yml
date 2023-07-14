@@ -6,18 +6,17 @@ orbs:
   continuation: circleci/continuation@0.1.2
 
 jobs:
-  auto-create-config:
+  build-test-and-deploy:
     docker:
       - image: circleci/circleci-inferconfig:latest
     steps:
       - checkout
-      # create a configuration file that is specific to your setup
-      - run: circleci-inferconfig > generated_config.yml
-      # immediately run a new workflow based on that configuration
-      - continuation/continue:
-          configuration_path: generated_config.yml
+      - node/with-cache:
+        steps:
+          - run: npm install
+          - run: yarn affected:deploy --base=<< pipeline.git.base_revision >> --head=HEAD
 
 workflows:
   analyze-my-code:
     jobs:
-      - auto-create-config
+      - build-test-and-deploy
