@@ -4,7 +4,7 @@ export interface Product {
   price: number;
 }
 
-export const exampleProducts: Product[] = [
+export const products: Product[] = [
   {
     id: '1',
     name: 'Product 1',

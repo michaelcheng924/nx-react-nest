@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "affected:deploy": "npx nx affected --target=deploy"
+    "affected:deploy": "npx nx affected --target=deploy",
+    "test": "jest"
   },
   "private": true,
   "dependencies": {
