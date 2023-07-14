@@ -14,5 +14,3 @@ steps:
 
 workflows:
   build-test-and-deploy:
-jobs:
-  - build-test-and-deploy
