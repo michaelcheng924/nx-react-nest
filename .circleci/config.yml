@@ -8,12 +8,12 @@ orbs:
 jobs:
   build-test-and-deploy:
     docker:
-      - image: circleci/circleci-inferconfig:latest
+      - image: cimg/node:20.4.0
     steps:
       - checkout
       - node/with-cache:
           steps:
-            - run: yarn
+            - run: npm install
             - run: yarn affected:deploy --base=<< pipeline.git.base_revision >> --head=HEAD
 
 workflows:
