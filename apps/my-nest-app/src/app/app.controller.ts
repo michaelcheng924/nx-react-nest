@@ -8,6 +8,7 @@ export class AppController {
 
   @Get()
   getData() {
+    console.log('======', process.env.MONGODB_URI);
     return this.appService.getData();
   }
 }
